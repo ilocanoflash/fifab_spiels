@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+  #myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 12px; /* Increase font-size */
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #49166d
+  
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+#myTable tr.header  {
+  /* Add a grey background color to the table header and on hover */
+  color: white;
+  background-color: #4b8600;
+  font-size: 16px; /* Increase font-size */
+} 
+
+/* #myTable tr:hover --> */
+
+
+</style>
+
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  
+   function myFunction3(elem){
+      var targetElementID = elem.getAttribute("data-target");
+      var copyText = document.getElementById(targetElementID);
+      copyText.select();
+      document.execCommand("copy");
+    }
+  </script>
+</head>
+
+<body>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Issue or Topic..">
+
+  <table id="myTable">
+    <tr class="header">
+      <th style="width:40%;">ISSUE / TOPIC</th>
+      <th style="width:60%;">CANNED RESPONSE</th>
+    </tr>
+    <tr>
+      <td>FNDA-36479 PROD-CSR-Optik 3.0 Plans displaying additional charges on their included Theme packs in CSR</td>
+      <td> 
+        <!-- The text field -->
+        <textarea name="36479" id="36479" cols="70" rows="5">Was impacted by Defect FNDA-36479.Checked both CSR and Enabler and confirmed that the charges for included TP have been removed. Next bill should be ok.
+        
+Impacted by Defect FNDA-36479. Currently, manual workaround is being applied by offline team. Adding this to list of impacted accounts for fix to be applied. Next bill should be ok. 
+
+          </textarea>
+ 
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction3(this)" data-target="36479">Copy text</button> 
+    </td>
+    </tr>
+
+    <tr>
+      <td>FNDA-35992  PROD Billing: SL calling features are being charged in enabler when they are included in CSR</td>
+      <td>
+        <!-- The text area -->
+        <textarea name="35992" id="35992" cols="70" rows="5">Was impacted by DEFECT FNDA-35992. Bulk billing sync is still being pushed right now to correct those accounts that were impacted, including this account. Please inform cx about the bulk bsync run and that their next bill should be good.
+
+Was impacted by DEFECT FNDA-35992 that is now  fixed. Billsync was already submitted for this account.  Confirmed CF charges were removed in Enabler. Next bill should be good. 
+          </textarea>
+ 
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction3(this)" data-target="35992">Copy text</button> 
+      </td>
+    </tr>
+    <tr>
+      <td>BAN CLOSURE</td>
+      <td><!-- The text field -->
+        <textarea name="closeban" id="closeban" cols="70" rows="5">To close the BAN, please create an e-ticket thru SPOC and have it assigned to NSPO APPLICATION SUPPORT team 
+          </textarea>
+ 
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction3(this)" data-target="closeban">Copy text</button> </td>
+    </tr>
+
+    <tr>
+      <td>FNDA-37553 PROD NC: Missing -$30 discount in Billing when adding CLS Loyalty $30 Off Credit for 24 MO Commitment Offer (Tier 3)</td>
+      <td><!-- The text field -->
+        <textarea name="37553" id="37553" cols="70" rows="5">Was impacted by Defect FNDA-37553.Checked Enabler and confirmed that the SA discount are already active. Next bill should be ok.
+        
+Impacted by Defect FNDA-37553. Currently, manual workaround is being applied by offline team. Adding this to list of impacted accounts for fix to be applied. Next bill should be ok. 
+          </textarea>
+ 
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction3(this)" data-target="37553">Copy text</button> 
+      </td>
+    </tr>
+
+    <tr>
+      <td>COPPER / NON FIFA  SERVICE  (NOT SUPPORTED)</td>
+      <td><!-- The text field -->
+        <textarea name="copper" id="copper" cols="70" rows="5">NameOfService is COPPER. Please cease the copper HS in OMNI. Contact your support for COMPASS billing or submit TOPAZ ticket for further assistance. Thanks! 
+          </textarea>
+ 
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction3(this)" data-target="copper">Copy text</button> 
+      </td>
+    </tr>
+
+    
+
+    <tr>
+      <td>Koniglich Essen</td>
+      <td>Germany</td>
+    </tr>
+
+
+    <tr>
+      <td>Koniglich Essen</td>
+      <td>Germany</td>
+    </tr>
+
+
+    <tr>
+      <td>Koniglich Essen</td>
+      <td>Germany</td>
+    </tr>
+  </table>
+</body>
+
+</html>
